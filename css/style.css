@@ -1,0 +1,1222 @@
+/* === Reset default styles and apply box-sizing === */
+* {
+  margin: 0;                /* Remove default margins */
+  padding: 0;               /* Remove default padding */
+  box-sizing: border-box;  /* Include padding and border in size */
+  font-family: Arial, sans-serif; /* Clean and readable font */
+}
+
+/* === Body base styling === */
+body {
+  background: #f9f9f9;      /* Light background color */
+  line-height: 1.6;         /* Good line spacing */
+}
+
+/* === Header container === */
+.header {
+  display: flex;                  /* Use Flexbox for layout */
+  align-items: center;           /* Vertically center items */
+  justify-content: space-between;/* Push nav to the right */
+  padding: 10px 20px;            /* Inner spacing */
+  background-color: #fff;        /* White header background */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Subtle shadow */
+  position: relative;            /* Needed for mobile nav */
+  flex-wrap: wrap;               /* Wrap on small screens */
+  z-index: 999;                  /* Keep on top */
+}
+
+/* === Brand section with logo and text === */
+.brand {
+  display: flex;                 /* Horizontal layout */
+  justify-content: flex-start; /*  Keep items aligned to the left */
+  align-items: center;          /* Vertically center logo & text */
+  gap: 10px;                    /* Space between icon and text */
+}
+
+/* === Logo icon styling === */
+.logo {
+  font-size: 28px;              /* Heartbeat icon size */
+  color: #e63946;               /* Red color for medical feel */
+  text-decoration: none;        /* Remove underline */
+}
+
+/* === Hospital name text === */
+.brand h1 {
+  font-size: 20px;              /* Text size */
+  color: #333;                  /* Dark text color */
+  white-space: nowrap;          /* Prevent wrapping */
+}
+
+/* === Navigation bar (desktop) === */
+.navbar {
+  display: flex;                /* Horizontal menu */
+  gap: 20px;                    /* Space between links */
+}
+
+/* === Individual nav links === */
+.navbar a {
+  color: #333;                  /* Link text color */
+  text-decoration: none;        /* Remove underline */
+  font-size: 16px;              /* Link font size */
+  text-transform: capitalize;   /* Capitalize text */
+  transition: color 0.3s;       /* Smooth color change on hover */
+}
+
+/* === Hover effect on links === */
+.navbar a:hover {
+  color: #e63946;               /* Red on hover */
+}
+
+/* === Hamburger icon (hidden on desktop) === */
+#menu-btn {
+  font-size: 24px;              /* Icon size */
+  color: #333;                  /* Icon color */
+  cursor: pointer;             /* Pointer cursor on hover */
+  display: none;                /* Hidden by default */
+}
+/* ===== HIDDEN TOGGLE CHECKBOX ===== */
+#menu-toggle {
+  display: none;
+}
+
+
+/* === Responsive styling for tablets and smaller screens === */
+@media (max-width: 768px) {
+  /* Show hamburger icon */
+  #menu-btn {
+    display: block;             /* Make icon visible */
+  }
+
+  /* Stack header items */
+  .header {
+    flex-direction: column;     /* Stack brand + menu */
+    align-items: flex-start;    /* Align to left */
+  }
+
+  /* Align brand full width */
+  .brand {
+    width: 100%;                /* Full width */
+    justify-content: space-between; /* Space between logo and icon */
+  }
+
+  /* Hide nav by default */
+  .navbar {
+    display: none;              /* Hide menu */
+    flex-direction: column;     /* Stack links */
+    width: 100%;                /* Full width */
+    background-color: #fff;     /* Match header */
+    padding: 10px 0;            /* Vertical padding */
+  }
+
+  /* Show menu when toggled */
+  #menu-toggle:checked ~ .navbar  {
+    display: flex;              /* Show menu on toggle */
+  }
+
+  .navbar a {
+    padding: 10px 20px;         /* Tap-friendly links */
+    border-top: 1px solid #eee;/* Divider between links */
+    width: 100%;
+  }
+}
+
+
+
+/* home */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.landing-page {
+  background-image: url('cover.png'), url('nurse.png');
+  background-repeat: no-repeat, no-repeat;
+  background-position: center, center;
+  background-size: cover, cover;
+  height: 100vh;
+  position: relative;
+  color: white;
+}
+
+/* Landing hero responsiveness */
+@media (max-width: 991px) {
+  .overlay {
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+  .text-content h1 {
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .overlay {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1.25rem;
+    gap: 0.75rem;
+  }
+  .text-content {
+    max-width: 100%;
+    text-align: center;
+  }
+  .text-content h1 {
+    font-size: 1.9rem;
+    line-height: 1.2;
+  }
+  .text-content p {
+    font-size: 1rem;
+  }
+  .btn-login {
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+  }
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+}
+
+.left-image img {
+  width: 400px;
+}
+
+.text-content {
+  text-align: right;
+  max-width: 600px;
+}
+
+.text-content h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.text-content span {
+  color: #fff;
+}
+
+.text-content p {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  color: #f0f0f0;
+}
+
+.btn-login {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background-color: white;
+  color: #078489;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  border: 2px solid #0aaeb3;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.btn-login:hover {
+  background-color: #078489;
+  color: #ffffff;
+  border-color: #078489;
+}
+
+/* (Removed legacy login page overrides to allow per-page responsive styles) */
+
+
+
+
+
+
+
+
+
+/* services */
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f7fdff;
+  color: #003b53;
+  padding: 2rem;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+p.subtitle {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.tab-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.tab-buttons label {
+  border: 2px solid #00778b;
+  padding: 0.6rem 1.2rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.tab-buttons label:hover,
+input[name="tabs"]:checked + label {
+  background-color: #00778b;
+  color: white;
+}
+
+input[name="tabs"] {
+  display: none;
+}
+
+.tab-content {
+  background: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.content-section {
+  display: none;
+}
+
+#cardiology:checked ~ .contents #cardiology-content,
+#oncology:checked ~ .contents #oncology-content,
+#neuro:checked ~ .contents #neuro-content,
+#gastro:checked ~ .contents #gastro-content,
+#ortho:checked ~ .contents #ortho-content,
+#transplant:checked ~ .contents #transplant-content {
+  display: block;
+}
+
+.plus-button {
+  font-size: 1.5rem;
+  border: 2px solid #00778b;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 2.3rem;
+  color: #00778b;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .tab-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* about */
+/* style.css */
+
+/* ===================== */
+/* Reset and Global Base */
+/* ===================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e8f6fa;
+  color: #003d5b;
+  line-height: 1.6;
+}
+
+/* ======================== */
+/* Apollo Stats Section Base */
+/* ======================== */
+#hospital-stats-section {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* Title and Subtitle Styling */
+.section-title {
+  font-size: 2.5em;
+  margin-bottom: 15px;
+  color:#024433
+}
+
+.section-subtitle {
+  font-size: 1.1em;
+  max-width: 800px;
+  margin: 0 auto 40px auto;
+  color: #333;
+}
+
+/* ======================== */
+/* Stats Container and Cards */
+/* ======================== */
+.stats-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Individual Stat Box */
+.stat-box {
+  background-color: #d9dcdc;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  flex: 1 1 260px;
+  max-width: 280px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+/* On hover, the box slightly lifts */
+.stat-box:hover {
+  transform: translateY(-5px);
+}
+
+/* Font Awesome Icon Styling */
+.icon {
+  font-size: 3em;
+  color: #066e6c;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+/* Animate icon pop on hover */
+.stat-box:hover .icon {
+  transform: scale(1.2);
+}
+
+/* Number Text Styling */
+.number {
+  font-size: 2em;
+  font-weight: bold;
+  color: #024433;
+  margin-bottom: 5px;
+}
+
+/* Label Text */
+.label {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Description Text */
+.description {
+  font-size: 0.95em;
+  color: #555;
+}
+
+
+
+
+
+
+/* doctors */
+/* ========== General Reset ========== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+  padding: 40px 20px;
+}
+
+/* ========== Section Container ========== */
+#doctor-section {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2em;
+  margin-bottom: 10px;
+  color: #003d5b;
+}
+
+.section-subtitle {
+  font-size: 1.1em;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+/* ========== Doctor Cards Layout ========== */
+.doctor-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* ========== Individual Card ========== */
+.doctor-card {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  width: 260px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.doctor-card:hover {
+  transform: translateY(-5px);
+}
+
+.doctor-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.doctor-card h3 {
+  font-size: 1.1em;
+  margin-bottom: 5px;
+  color: #222;
+}
+
+.specialty,
+.experience,
+.location {
+  font-size: 0.9em;
+  margin-bottom: 6px;
+  color: #666;
+}
+
+.location i {
+  color: #0077b6;
+  margin-right: 5px;
+}
+
+/* ========== Buttons ========== */
+.buttons {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Phone Icon Button */
+.call-btn {
+  background-color: #ffe066;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 1em;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.call-btn:hover {
+  background-color: #ffcd39;
+  transform: scale(1.1);
+}
+
+/* Appointment Button */
+.book-btn {
+  display: inline-block;
+  background-color: #fff;
+  border: 2px solid #003d5b;
+  color: #003d5b;
+  padding: 8px 15px;
+  border-radius: 25px;
+  font-size: 0.9em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.book-btn:hover {
+  background-color: #003d5b;
+  color: #fff;
+}
+
+/* ========== View All Button ========== */
+.view-all-container {
+  margin-top: 40px;
+}
+
+.view-all-btn {
+  background-color: #ffe066;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 25px;
+  font-size: 0.95em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.view-all-btn:hover {
+  background-color: #ffcd39;
+}
+
+
+
+/* book */
+/* Reset box model and set font for all elements */
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Basic body styling */
+body {
+  margin: 0;
+  background: #f5f8fa;
+}
+
+/* Container section */
+#appointment-section {
+  padding: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Main heading */
+h2 {
+  color: #008080;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+/* Flex container for the form and image/info block */
+.appointment-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+/* Left-side container (image and info) */
+.info-image {
+  flex: 1 1 40%;
+}
+
+/* Image styling */
+.info-image img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+/* Info block below the image */
+.info-block {
+  border-left: 5px solid #00b39f;
+  background: #ffffff;
+  padding: 15px 20px;
+  margin-top: 15px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: background 0.3s ease;
+}
+
+/* Hover effect for info block */
+.info-block:hover {
+  background: #e0f7fa;
+}
+
+/* Info block heading */
+.info-header {
+  font-size: 16px;
+  font-weight: bold;
+  color: #006666;
+  margin-bottom: 10px;
+}
+
+/* Paragraph styling inside info */
+.info-block p {
+  margin: 6px 0;
+  font-size: 15px;
+}
+
+/* Links inside info */
+.info-block a {
+  color: #0077cc;
+  text-decoration: none;
+}
+
+.info-block a:hover {
+  color: #004e99;
+}
+
+/* Form container */
+.appointment-form {
+  flex: 1 1 55%;
+  background: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Form title */
+.appointment-form h3 {
+  margin-bottom: 20px;
+  color: #222;
+}
+
+/* Form groups */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+/* Label for form inputs */
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* Red asterisk for required fields */
+.required {
+  color: red;
+  margin-left: 3px;
+}
+
+/* Inputs, selects, and textareas */
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Focus styling for inputs */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #00b39f;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 179, 159, 0.5);
+}
+
+/* Radio button groups */
+.form-group.inline-group {
+  flex-direction: column;
+}
+
+.inline-group > div {
+  display: flex;
+  gap: 15px;
+  margin: 5px 0;
+}
+
+/* Submit button styling */
+.submit-btn {
+  background: linear-gradient(to right, #00b39f, #00d4ff);
+  color: #fff;
+  padding: 12px 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Hover effect for button */
+.submit-btn:hover {
+  opacity: 0.9;
+}
+
+/* Responsive adjustments for mobile screens */
+@media (max-width: 768px) {
+  .appointment-container {
+    flex-direction: column;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* PATIENTS SPEAK */
+/* ================= BASE STYLES ================= */
+/* ================= GENERAL RESET ================== */
+.patient-heading{
+  font-size: 2em;
+  margin-bottom: 10px;
+  color: #003d5b;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f8f8f8;
+  padding: 40px;
+}
+
+/* ================= COMMON STYLES ================== */
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+}
+.play-button::before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 20px solid orange;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+}
+
+/* ================= LEFT SCROLLING STYLES ================== */
+.patients-carousel-left {
+  overflow: hidden;
+  margin-bottom: 1px;
+}
+
+.carousel-track-left {
+  display: flex;
+  width: fit-content;
+  animation: scrollLeft 30s linear infinite;
+}
+
+.patients-left-row {
+  display: flex;
+  flex-shrink: 0; /* Prevent shrinking */
+  margin-right: 20px;
+}
+
+.video-left-box,
+.text-left-box {
+  width: 250px;
+  height: 250px;
+  margin: 10px;
+  border-radius: 20px;
+  background-color: #5ca4ad;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.text-left-box {
+  flex-direction: column;
+  text-align: center;
+  padding: 20px;
+}
+
+.text-left-box h2 {
+  margin-bottom: 10px;
+  color: #003344;
+}
+
+.text-left-box p {
+  font-size: 14px;
+  color: #222;
+}
+
+.text-left-box b {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* Keyframes for Left Scroll */
+@keyframes scrollLeft {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Pause scroll on hover */
+.patients-carousel-left:hover .carousel-track-left {
+  animation-play-state: paused;
+}
+
+/* ================= RIGHT SCROLLING STYLES ================== */
+/* ============ RIGHT SCROLLING PATIENTS SPEAK ============ */
+
+/* Outer wrapper to hide overflow */
+.patients-carousel-right {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+/* Track that will scroll to the LEFT (so it appears to move RIGHT visually) */
+.carousel-track-right {
+  display: flex;
+  width: max-content;
+  animation: scrollRight 30s linear infinite;
+}
+
+/* Each patient row (fixed width, no shrink) */
+.patients-right-row {
+  display: flex;
+  gap: 20px;
+  align-items: stretch;
+  flex-shrink: 0;
+  padding: 20px;
+}
+
+/* Video box */
+.video-right-box {
+  width: 250px;
+  height: 250px;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #007a8a;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.video-right-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Ensure videos fill the boxes nicely */
+.video-left-box video,
+.video-right-box video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Hide overlay play icon on real video boxes */
+.video-left-box .play-button,
+.video-right-box .play-button {
+  display: none;
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+}
+
+.play-button::before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 20px solid orange;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+}
+
+/* Text box */
+.text-right-box {
+  width: 250px;
+  height: 250px;
+  border-radius: 20px;
+  background-color: #007a8a;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.text-right-box h2 {
+  margin-bottom: 10px;
+  color: #003344;
+}
+
+.text-right-box p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #222;
+}
+
+.text-right-box b {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #000;
+}
+
+/* Animation for seamless LEFT scroll (which makes it appear RIGHT visually) */
+@keyframes scrollRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+/* Pause scroll on hover */
+.patients-carousel-right:hover .carousel-track-right {
+  animation-play-state: paused;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .carousel-track-right {
+    flex-direction: column;
+    animation: none;
+  }
+
+  .patients-right-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .video-right-box,
+  .text-right-box {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+  }
+}
+
+
+
+
+/* ================= RESPONSIVE (optional) ================== */
+@media (max-width: 768px) {
+  .carousel-track-left,
+  .carousel-track-right {
+    flex-direction: column;
+    animation: none;
+  }
+
+  .patients-left-row,
+  .patients-right-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .video-left-box,
+  .text-left-box,
+  .video-right-box,
+  .text-right-box {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+  }
+
+  .video-left-box video,
+  .video-right-box video {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+.footer {
+  background-color: #eaf3f5;
+  padding: 40px 20px;
+}
+
+/* === Flex Layout for Columns === */
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* === Footer Columns === */
+.footer-column {
+  flex: 1 1 200px;
+  min-width: 200px;
+}
+
+/* === Section Headings === */
+.footer-column h3 {
+  color: #007a8a;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+/* === List Styling === */
+.footer-column ul {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+/* === List Items with Links === */
+.footer-column li {
+  margin-bottom: 6px;
+}
+
+/* === Anchor Tags (Links) === */
+/* 
+  Target all anchor (<a>) tags inside elements with class 'footer-column'.
+  This sets up the default style for the links.
+*/
+.footer-column a {
+  display: inline-block;        /* Allows the link to be transformed (moved/animated). Inline elements can't use transform. */
+  text-decoration: none;        /* Removes the default underline from links for a cleaner look. */
+  color: rgb(82, 79, 79);                 /* Sets the default text color to black. */
+  transition: transform 0.2s ease, color 0.2s ease; 
+  /* Adds a smooth animation for both movement and color change when hovered or touched.
+     - 0.2s = duration of the animation (200 milliseconds)
+     - ease = acceleration curve for a smooth effect */
+}
+
+
+/*
+  When the user hovers over the link (mouse) or activates it (touch/click),
+  apply the following styles to create an interactive effect.
+*/
+/* === Hover Effects for Links === */
+.footer-column a:hover,
+.footer-column a:active {
+  transform: translateX(5px);   /* Moves the link 5 pixels to the right for a subtle "slide" effect. */
+  color: #007a8a;               /* Changes the text color to Apollo's brand blue on hover/touch. */
+}
+
+
+/* === Strong Styling (Bold Headers) === */
+.footer-column a strong {
+  font-weight: bold;
+}
+
+/* === Responsive Layout === */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+  }
+
+  .footer-column {
+    margin-bottom: 30px;
+  }
+}
+
+
+
+
+
+/* === Footer Container Styling === */
+.simple-footer {
+  background-color: #d7ebf2;  /* Light blue background */
+  padding: 1rem 0;           /* Vertical padding above and below the footer */
+  font-size: 0.95rem;        /* Slightly smaller text size */
+  color: #002244;            /* Dark blue text color */
+}
+
+/* === Flex Container for Footer Content === */
+.footer-bar {
+  max-width: 1200px;         /* Maximum width for content (centers it on large screens) */
+  margin: 0 auto;            /* Auto left-right margin to center the container */
+  padding: 0 1rem;           /* Horizontal padding to prevent touching screen edge */
+  display: flex;             /* Enables flexbox for horizontal layout */
+  justify-content: space-between; /* Pushes left and right content to edges */
+  align-items: center;       /* Vertically center the items */
+  flex-wrap: wrap;           /* Allows wrapping on small screens */
+}
+
+/* === Right-Side Links Styling === */
+.footer-links a {
+  margin-left: 1.5rem;       /* Space between each link */
+  color: #002244;            /* Match the footer text color */
+  text-decoration: none;     /* Remove underline by default */
+  transition: color 0.3s ease; /* Smooth color change on hover */
+}
+
+/* === Hover Effect for Footer Links === */
+.footer-links a:hover {
+  text-decoration: underline; /* Add underline on hover for better UX */
+  color: #005a9e;             /* Change color slightly on hover */
+}
+
+/* === Responsive Design for Small Screens === */
+@media (max-width: 600px) {
+  .footer-bar {
+    flex-direction: column;      /* Stack items vertically */
+    align-items: center;         /* Center items horizontally */
+    text-align: center;          /* Center text */
+  }
+
+  .footer-links {
+    margin-top: 0.5rem;          /* Add spacing between text and links when stacked */
+  }
+
+  .footer-links a {
+    margin-left: 1rem;           /* Reduce left spacing between links */
+    margin-right: 1rem;          /* Add right spacing for balance */
+  }
+}

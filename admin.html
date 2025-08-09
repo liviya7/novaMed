@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard | NovaMed Hospital</title>
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="Admin dashboard to manage staff for NovaMed Hospital.">
+  
+  <!-- font awesome cdn link  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  
+  <!-- custom css file link  -->
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background-color: #f4f6f9;
+    }
+
+    .tagline {
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
+
+    nav {
+      background: white;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: black;
+      text-decoration: none;
+      padding: 12px 20px;
+      margin: 0 10px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #05376d;
+    }
+
+    section {
+      max-width: 800px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color: #0e5cb8;
+      text-align: center;
+    }
+
+    ul {
+      font-size: 1.1em;
+      line-height: 1.8;
+      margin-top: 20px;
+    }
+
+    ul li {
+      list-style: none;
+      margin: 10px 0;
+    }
+
+    ul li i {
+      margin-right: 10px;
+      color: #0e5cb8;
+    }
+
+    /* Dashboard enhancements */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 25px;
+    }
+
+    .dashboard-card {
+      border: 1px solid #e9edf5;
+      border-radius: 10px;
+      padding: 20px;
+      background: #fafcff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .dashboard-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    .dashboard-card i {
+      font-size: 1.6rem;
+      color: #0e5cb8;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+
+    .dashboard-card h3 {
+      margin: 8px 0 6px;
+      font-size: 1.2rem;
+      color: #05376d;
+    }
+
+    .dashboard-card p {
+      margin: 0;
+      color: #546e7a;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    .greeting {
+      text-align: center;
+      color: #37474f;
+      margin-top: -10px;
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+<!-- header section starts  -->
+<header class="header">
+    <div class="brand">
+        <a href="#" class="logo"> <i class="fas fa-heartbeat"></i> </a>
+        <h1>NovaMed Hospital</h1>
+    </div>
+
+    <input type="checkbox" id="menu-toggle" />
+    <label for="menu-toggle" id="menu-btn" class="fas fa-bars"></label>
+
+    <nav class="navbar">
+        
+        
+        <a href="index.html"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+    </nav>
+</header>
+
+  <!-- Home Section -->
+  <section id="home">
+    <h2>Welcome, <span id="adminName">Admin</span></h2>
+    <p class="greeting">Manage NovaMed staff and operations from your dashboard.</p>
+    
+
+    <div class="dashboard-grid">
+      <a class="dashboard-card" href="add-staff.html">
+        <i class="fas fa-user-plus"></i>
+        <h3>Add Staff</h3>
+        <p>Create a profile for new staff members.</p>
+      </a>
+      <a class="dashboard-card" href="list-staff.html">
+        <i class="fas fa-list"></i>
+        <h3>List Staff</h3>
+        <p>Browse and manage all registered staff.</p>
+      </a>
+      <a class="dashboard-card" href="search-staff.html">
+        <i class="fas fa-search"></i>
+        <h3>Search Staff</h3>
+        <p>Find staff quickly by name, role, or department.</p>
+      </a>
+    </div>
+  </section>
+
+<footer class="simple-footer">
+  <div class="footer-bar">
+    
+    <!-- Left-side text -->
+    <p>© 2025 NovaMed Hospital. All rights reserved.</p>
+
+    <!-- Right-side links -->
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+
+  </div>
+</footer>
+<script>
+  (function () {
+    function getQueryParam(param) {
+      var params = new URLSearchParams(window.location.search);
+      return params.get(param);
+    }
+
+    var urlUsername = getQueryParam('username');
+    var storedUsername = sessionStorage.getItem('username') || localStorage.getItem('username');
+    var effectiveUsername = urlUsername || storedUsername || 'Admin';
+
+    if (urlUsername) {
+      try { sessionStorage.setItem('username', urlUsername); } catch (_) {}
+    }
+
+    var nameSpan = document.getElementById('adminName');
+    if (nameSpan) {
+      nameSpan.textContent = effectiveUsername;
+    }
+
+    var logoutLink = document.querySelector('.navbar a[href="index.html"]');
+    if (logoutLink) {
+      logoutLink.addEventListener('click', function () {
+        try {
+          sessionStorage.clear();
+          localStorage.removeItem('username');
+        } catch (_) {}
+      });
+    }
+  })();
+</script>
+</body>
+</html>

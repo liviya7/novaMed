@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaMed Hospital - Dashboard</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+    
+</head>
+
+<body>
+    
+<!-- header section starts  -->
+<header class="header">
+    <div class="brand">
+        <a href="#" class="logo"> <i class="fas fa-heartbeat"></i> </a>
+        <h1>NovaMed Hospital</h1>
+    </div>
+
+    <input type="checkbox" id="menu-toggle" />
+    <label for="menu-toggle" id="menu-btn" class="fas fa-bars"></label>
+
+    <nav class="navbar">
+        
+        <a href="index.html">Logout</a>
+    </nav>
+</header>
+
+<!-- Main Content -->
+<section style="padding: 50px 20px; text-align: center;">
+    <h1>Welcome to NovaMed Hospital Dashboard</h1>
+    <p>Select your role to access the appropriate system:</p>
+    
+    <div style="display: flex; justify-content: center; gap: 20px; margin-top: 30px; flex-wrap: wrap;">
+        <a href="login1.html" style="text-decoration: none; color: inherit;">
+            <div style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); min-width: 200px;">
+                <i class="fas fa-user-shield" style="font-size: 3em; color: #0e5cb8; margin-bottom: 15px;"></i>
+                <h3>Admin</h3>
+                <p>Manage staff and hospital operations</p>
+            </div>
+        </a>
+        
+        <a href="#" style="text-decoration: none; color: inherit;">
+            <div style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); min-width: 200px;">
+                <i class="fas fa-user-nurse" style="font-size: 3em; color: #0e5cb8; margin-bottom: 15px;"></i>
+                <h3>Receptionist</h3>
+                <p>Patient registration and appointments</p>
+
+            </div>
+        </a>
+        
+        <a href="#" style="text-decoration: none; color: inherit;">
+            <div style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); min-width: 200px;">
+                <i class="fas fa-pills" style="font-size: 3em; color: #0e5cb8; margin-bottom: 15px;"></i>
+                <h3>Pharmacist</h3>
+                <p>Medicine management and dispensing</p>
+            </div>
+        </a>
+        
+        <a href="#" style="text-decoration: none; color: inherit;">
+            <div style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); min-width: 200px;">
+                <i class="fas fa-flask" style="font-size: 3em; color: #0e5cb8; margin-bottom: 15px;"></i>
+                <h3>Lab Technician</h3>
+                <p>Laboratory tests and diagnostics</p>
+            </div>
+        </a>
+    </div>
+</section>
+
+<footer class="simple-footer">
+  <div class="footer-bar">
+    
+    <!-- Left-side text -->
+    <p>© 2025 NovaMed Hospital. All rights reserved.</p>
+
+    <!-- Right-side links -->
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>

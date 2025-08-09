@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Staff | NovaMed Hospital</title>
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="Add a new staff member to NovaMed Hospital with validated details.">
+  
+  <!-- font awesome cdn link  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  
+  <!-- custom css file link  -->
+  <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f6f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background: white;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: black;
+      text-decoration: none;
+      padding: 12px 20px;
+      margin: 0 10px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #05376d;
+    }
+
+    .container {
+      max-width: 640px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #0e5cb8;
+    }
+
+    form label {
+      display: block;
+      margin: 15px 0 5px;
+      font-weight: bold;
+    }
+
+    form input, form textarea, form select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+    }
+
+    form button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #0e5cb8;
+      color: white;
+      font-size: 1em;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: #074a94;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        margin: 20px 12px;
+        padding: 20px;
+      }
+      form label { margin-top: 12px; }
+      form button { padding: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- header section starts  -->
+<header class="header">
+    <div class="brand">
+        <a href="#" class="logo"> <i class="fas fa-heartbeat"></i> </a>
+        <h1>NovaMed Hospital</h1>
+    </div>
+
+    <input type="checkbox" id="menu-toggle" />
+    <label for="menu-toggle" id="menu-btn" class="fas fa-bars"></label>
+
+    <nav class="navbar">
+        <a href="admin.html"><i class="fas fa-home"></i> Home</a>
+        
+        <a href="index.html"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+    </nav>
+</header>
+
+  <div class="container">
+    <h2>Staff Details</h2>
+    <form action="#" method="post">
+      <!-- Full Name -->
+      <label for="fullname">Full Name</label>
+      <input
+        type="text"
+        id="fullname"
+        name="fullname"
+        required
+        minlength="3"
+        maxlength="100"
+        pattern="^(?=.*[A-Za-z])[A-Za-z\s]+$"
+        autocomplete="name"
+        placeholder="e.g., John Doe"
+        title="Only letters and spaces allowed. Name must contain at least one letter."
+      >
+
+      <!-- Email -->
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        maxlength="100"
+        autocomplete="email"
+        placeholder="e.g., john.doe@example.com"
+        title="Enter a valid email address"
+      >
+
+      <!-- Role -->
+      <label for="role">Role</label>
+      <select id="role" name="role" required title="Select a role">
+        <option value="" selected disabled>-- Select Role --</option>
+        <option>Doctor</option>
+        <option>Nurse</option>
+        <option>Receptionist</option>
+        <option>Pharmacist</option>
+        <option>Lab Technician</option>
+        <option>Support Staff</option>
+      </select>
+
+      <!-- Department (optional) -->
+      <label for="department">Department (optional)</label>
+      <input
+        type="text"
+        id="department"
+        name="department"
+        maxlength="100"
+        pattern="[A-Za-z\s]+"
+        placeholder="e.g., Cardiology"
+        title="Only letters and spaces allowed"
+      >
+
+      <!-- Date of Birth -->
+      <label for="dob">Date of Birth</label>
+      <input
+        type="date"
+        id="dob"
+        name="dob"
+        required
+        min="1900-01-01"
+        max="2007-01-01"
+        title="Staff must be at least 18 years old"
+      >
+
+      <!-- Phone Number -->
+      <label for="phone">Phone Number</label>
+      <input
+        type="tel"
+        id="phone"
+        name="phone"
+        required
+        pattern="\d{10}"
+        inputmode="numeric"
+        placeholder="10-digit number"
+        autocomplete="tel"
+        title="Enter a valid 10-digit phone number"
+      >
+
+      <!-- Address -->
+      <label for="address">Address</label>
+      <textarea
+        id="address"
+        name="address"
+        rows="3"
+        required
+        minlength="10"
+        maxlength="250"
+        placeholder="Street, City, State"
+        title="Please provide a detailed address"
+      ></textarea>
+
+      <!-- Joining Date -->
+      <label for="joining">Joining Date</label>
+      <input
+        type="date"
+        id="joining"
+        name="joining"
+        required
+        min="2000-01-01"
+        title="Enter a valid joining date"
+      >
+
+      <!-- Salary -->
+      <label for="salary">Salary</label>
+      <input
+        type="number"
+        id="salary"
+        name="salary"
+        required
+        min="1"
+        step="1"
+        inputmode="numeric"
+        placeholder="e.g., 50000"
+        title="Enter a salary greater than 0"
+      >
+
+      <button type="submit"><i class="fas fa-save"></i> Add Staff</button>
+    </form>
+  </div>
+  <footer class="simple-footer">
+  <div class="footer-bar">
+    
+    <!-- Left-side text -->
+    <p>© 2025 NovaMed Hospital. All rights reserved.</p>
+
+    <!-- Right-side links -->
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+
+  </div>
+</footer>
+</body>
+</html>

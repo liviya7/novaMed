@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Staff Directory | NovaMed Hospital</title>
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="Browse and manage NovaMed Hospital staff records.">
+  
+  <!-- font awesome cdn link  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  
+  <!-- custom css file link  -->
+  <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f6f9;
+      margin: 0;
+    }
+
+    nav {
+      background: white;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: black;
+      text-decoration: none;
+      padding: 12px 20px;
+      margin: 0 10px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #05376d;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #0e5cb8;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      min-width: 800px; /* enable horizontal scroll on small screens */
+    }
+
+    table th, table td {
+      border: 1px solid #ccc;
+      padding: 12px;
+      text-align: center;
+    }
+
+    table th {
+      background-color: #0e5cb8;
+      color: white;
+    }
+
+    table tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    /* Responsive tweaks */
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        margin: 20px 12px;
+        padding: 20px;
+      }
+      table th, table td {
+        padding: 10px;
+        font-size: 0.95rem;
+        white-space: nowrap;
+      }
+    }
+
+    /* Card-style table for small screens */
+    @media (max-width: 600px) {
+      .table-responsive { overflow-x: visible; }
+      table { min-width: 100%; border: 0; }
+      thead { position: absolute; top: -9999px; left: -9999px; }
+      tr {
+        display: block;
+        margin-bottom: 12px;
+        background: #ffffff;
+        border: 1px solid #e9edf5;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+      }
+      td {
+        display: block;
+        text-align: right;
+        border: none;
+        border-bottom: 1px solid #f0f3f7;
+        position: relative;
+        padding-left: 50%;
+        white-space: normal;
+      }
+      td:last-child { border-bottom: 0; }
+      td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 12px;
+        top: 12px;
+        width: calc(50% - 24px);
+        white-space: nowrap;
+        font-weight: 600;
+        color: #05376d;
+        text-align: left;
+      }
+    }
+
+    /* Hide Address column on extra-narrow devices */
+    @media (max-width: 420px) {
+      tbody td:nth-child(5) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- header section starts  -->
+<header class="header">
+    <div class="brand">
+        <a href="#" class="logo"> <i class="fas fa-heartbeat"></i> </a>
+        <h1>NovaMed Hospital</h1>
+    </div>
+
+    <input type="checkbox" id="menu-toggle" />
+    <label for="menu-toggle" id="menu-btn" class="fas fa-bars"></label>
+
+    <nav class="navbar">
+        <a href="admin.html"><i class="fas fa-home"></i> Home</a>
+        
+        <a href="index.html"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+    </nav>
+</header>
+
+  <div class="container">
+    <h2>Staff Members</h2>
+    <div class="table-responsive">
+    <table>
+      <thead>
+        <tr>
+          <th>Staff ID</th>
+          <th>Full Name</th>
+          <th>DOB</th>
+          <th>Phone</th>
+          <th>Address</th>
+          <th>Joining Date</th>
+          <th>Salary</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Staff ID">ST001</td>
+          <td data-label="Full Name">John Doe</td>
+          <td data-label="DOB">12-03-1990</td>
+          <td data-label="Phone">9876543210</td>
+          <td data-label="Address">123 Elm Street</td>
+          <td data-label="Joining Date">01-01-2020</td>
+          <td data-label="Salary">$45,000</td>
+        </tr>
+        <tr>
+          <td data-label="Staff ID">ST002</td>
+          <td data-label="Full Name">Jane Smith</td>
+          <td data-label="DOB">22-07-1985</td>
+          <td data-label="Phone">8765432109</td>
+          <td data-label="Address">456 Oak Avenue</td>
+          <td data-label="Joining Date">15-03-2021</td>
+          <td data-label="Salary">$48,500</td>
+        </tr>
+        <tr>
+          <td data-label="Staff ID">ST003</td>
+          <td data-label="Full Name">Alan Brown</td>
+          <td data-label="DOB">05-11-1982</td>
+          <td data-label="Phone">7654321098</td>
+          <td data-label="Address">789 Pine Road</td>
+          <td data-label="Joining Date">20-06-2022</td>
+          <td data-label="Salary">$50,000</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+  <footer class="simple-footer">
+  <div class="footer-bar">
+    
+    <!-- Left-side text -->
+    <p>© 2025 NovaMed Hospital. All rights reserved.</p>
+
+    <!-- Right-side links -->
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+
+  </div>
+</footer>
+</body>
+</html>
