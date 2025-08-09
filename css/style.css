@@ -130,113 +130,46 @@ body {
   font-family: 'Segoe UI', sans-serif;
 }
 
+/* Responsive landing page adjustments */
 .landing-page {
   position: relative;
   color: white;
   overflow: hidden;
   min-height: 100svh;
-  height: 100vh; /* fallback */
+  height: 100vh;
 }
 
-/* Responsive background image element */
 .landing-page .hero-bg {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center top;
   z-index: 0;
 }
 
-/* Landing hero responsiveness */
-@media (max-width: 991px) {
-  .overlay {
-    padding: 1.5rem;
-    gap: 1rem;
-  }
-  .text-content h1 {
-    font-size: 2.4rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .overlay {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 1rem;
-    gap: 0.75rem;
-    background: transparent; /* avoid dark bars over empty areas */
-  }
-  .landing-page {
-    min-height: 100svh; /* keep a full-screen hero */
-    height: 100vh;      /* fallback for older browsers */
-  }
-  .landing-page .hero-bg {
-    position: absolute; /* keep image behind text */
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* full image visible */
-    object-position: center top;
-    z-index: 0;
-  }
-  .text-content {
-    max-width: min(92%, 60ch);
-    text-align: center;
-    padding: 0.75rem 0;
-    color: #fff;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.4);
-  }
-  .text-content h1 {
-    font-size: clamp(1.4rem, 5vw + 0.4rem, 2.1rem);
-    line-height: 1.2;
-  }
-  .text-content p {
-    font-size: clamp(0.9rem, 2.5vw, 1rem);
-  }
-  .btn-login {
-    width: auto;
-    max-width: 85%;
-    text-align: center;
-  }
-}
-
+/* Overlay and login button positioning */
 .overlay {
   background: transparent;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end; /* Push content to bottom */
   padding: clamp(1rem, 4vw, 3rem);
   position: absolute;
   inset: 0;
   z-index: 1;
 }
 
-.left-image { display: none; }
-
 .text-content {
   text-align: center;
   max-width: 60ch;
+  position: relative;
+  margin-bottom: 2rem;
 }
 
-.text-content h1 {
-  font-size: clamp(1.5rem, 4vw + 0.4rem, 2.2rem);
-  font-weight: bold;
-}
-
-.text-content span {
-  color: #fff;
-}
-
-.text-content p {
-  margin: 0.75rem 0;
-  font-size: clamp(0.95rem, 1vw + 0.6rem, 1.05rem);
-  color: #f0f0f0;
-}
-
+/* Login button always at the bottom of the image */
 .btn-login {
   display: inline-block;
   padding: clamp(0.55rem, 1vw + 0.35rem, 0.8rem) clamp(0.9rem, 2vw + 0.7rem, 1.3rem);
@@ -249,23 +182,37 @@ body {
   border: 2px solid #0aaeb3;
   transition: all 0.25s ease;
   cursor: pointer;
+  margin-bottom: 2.5rem;
+  margin-top: 0;
+  position: static;
+  left: auto;
+  top: auto;
+  transform: none;
+  z-index: 2;
 }
 
-.btn-login:hover {
-  background-color: #078489;
-  color: #ffffff;
-  border-color: #078489;
+/* Responsive: keep button at bottom on all screen sizes */
+@media (max-width: 599px) {
+  .overlay {
+    flex-direction: column;
+    justify-content: flex-end; /* Always bottom */
+    align-items: center;
+    padding: 0.5rem;
+    text-align: center;
+  }
+  .btn-login {
+    position: static;
+    left: auto;
+    top: auto;
+    transform: none;
+    margin-bottom: 2.5rem;
+    margin-top: 0;
+  }
+  .text-content {
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+  }
 }
-
-/* (Removed legacy login page overrides to allow per-page responsive styles) */
-
-
-
-
-
-
-
-
 
 /* services */
 /* Base Reset */
@@ -799,22 +746,90 @@ h2 {
   opacity: 0.9;
 }
 
+/* Appointment Form Validation Styles */
+
+/* Name: only letters, min 5 chars */
+input[name="name"]:invalid {
+  border: 2px solid #e74c3c;
+}
+input[name="name"]:valid {
+  border: 2px solid #2ecc71;
+}
+input[name="name"] {
+  pattern: "[A-Za-z\\s]{5,}";
+}
+
+/* Location: letters/numbers, min 4 chars */
+input[name="location"]:invalid {
+  border: 2px solid #e74c3c;
+}
+input[name="location"]:valid {
+  border: 2px solid #2ecc71;
+}
+input[name="location"] {
+  pattern: "[A-Za-z0-9\\s]{4,}";
+}
+
+/* Date: future date only (HTML min attribute already set) */
+input[name="date"]:invalid {
+  border: 2px solid #e74c3c;
+}
+input[name="date"]:valid {
+  border: 2px solid #2ecc71;
+}
+
+/* Email: valid format */
+input[name="email"]:invalid {
+  border: 2px solid #e74c3c;
+}
+input[name="email"]:valid {
+  border: 2px solid #2ecc71;
+}
+
+/* Phone: exactly 10 digits */
+input[name="phone"]:invalid {
+  border: 2px solid #e74c3c;
+}
+input[name="phone"]:valid {
+  border: 2px solid #2ecc71;
+}
+input[name="phone"] {
+  pattern: "[0-9]{10}";
+}
+
+/* Purpose: required, max 250 chars */
+textarea[name="purpose"]:invalid {
+  border: 2px solid #e74c3c;
+}
+textarea[name="purpose"]:valid {
+  border: 2px solid #2ecc71;
+}
+textarea[name="purpose"] {
+  max-length: 250;
+}
+
+/* Show a message below invalid fields */
+input:invalid, textarea:invalid {
+  box-shadow: none;
+}
+input:invalid:focus, textarea:invalid:focus {
+  outline: none;
+}
+input:invalid:focus::after,
+textarea:invalid:focus::after {
+  content: "Please check your entry.";
+  color: #e74c3c;
+  font-size: 0.9em;
+  display: block;
+  margin-top: 2px;
+}
+
 /* Responsive adjustments for mobile screens */
 @media (max-width: 768px) {
   .appointment-container {
     flex-direction: column;
   }
 }
-
-
-
-
-
-
-
-
-
-
 
 /* PATIENTS SPEAK */
 /* ================= BASE STYLES ================= */
@@ -1063,9 +1078,6 @@ body {
     height: auto;
   }
 }
-
-
-
 
 /* ================= RESPONSIVE (optional) ================== */
 @media (max-width: 768px) {
